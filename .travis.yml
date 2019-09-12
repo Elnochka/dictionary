@@ -4,4 +4,4 @@ install:
 - mvn dependency:go-offline -DexcludeReactor=false
 script:
 - mvn clean test
-- mvn clean install
+- mvn clean compile

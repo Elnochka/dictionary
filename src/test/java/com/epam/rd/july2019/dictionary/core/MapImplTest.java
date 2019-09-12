@@ -11,7 +11,7 @@ public class MapImplTest {
     @Test
     public void testPut(){
         //GIVEN
-        int resultExpected = 100;
+        int resultExpected = 101;
         //WHEN
         map.put("top", 1);
         map.put("top", 2);
