@@ -17,7 +17,7 @@ public class AppImplMap {
 
     public static void main(String[] args) throws Exception {
 
-        String fileName = "words_alpha.txt";
+//        String fileName = "words_alpha.txt";
 
         dictionary(fileName);
 
