@@ -17,18 +17,32 @@ public class AppImplMap {
 
     public static void main(String[] args) throws Exception {
 
-        String fileName = "words_alpha.txt";
+        String fileName = "";
 
-        dictionary(fileName);
+        String prefix = "";
+
+        if (args.length == 2) {
+
+            fileName = args[0];
+
+            prefix = args[1];
+
+
+        } else {
+
+            LOGGER.info("You should fill a command line! File name and prefix.");
+            LOGGER.info("Example of load: java -jar homework.jar words_alpha.txt pref");
+
+            System.exit(0);
+        }
+
+        dictionary(fileName, prefix);
 
     }
 
-    public static void dictionary(String fileNameRead) throws Exception{
-
-        String prefix = "str";
+    public static void dictionary(String fileNameRead, String prefix) throws Exception{
 
         MapImpl<String, String> dictionary = new MapImpl<String, String>();
-
 
         if (!Files.isRegularFile(Paths.get(fileNameRead))) {
             throw new Exception("A file is not exist!");
@@ -84,7 +98,7 @@ public class AppImplMap {
 
         }
 
-        LOGGER.info("Count words with prefix " + prefix + ": " + countWords);
+        LOGGER.info("Number words with prefix " + prefix + ": " + countWords);
 
     }
 
