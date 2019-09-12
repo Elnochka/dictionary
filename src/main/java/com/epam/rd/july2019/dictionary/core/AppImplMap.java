@@ -17,13 +17,9 @@ public class AppImplMap {
 
     public static void main(String[] args) throws Exception {
 
-        LOGGER.info("" + new Date());
-
         String fileName = "words_alpha.txt";
 
         dictionary(fileName);
-
-        LOGGER.info("" + new Date());
 
     }
 
