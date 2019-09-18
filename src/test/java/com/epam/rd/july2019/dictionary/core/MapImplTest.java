@@ -4,6 +4,8 @@ import com.epam.rd.july2019.dictionary.core.MapImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Iterator;
+
 public class MapImplTest {
 
     MapImpl<String, Integer> map = new MapImpl<String, Integer>();
@@ -42,5 +44,26 @@ public class MapImplTest {
         //THEN
         Assert.assertEquals(resultExpected, resultActual);
         Assert.assertEquals(resultExpectedMore, resultActualMore);
+    }
+
+    @Test
+    public void testIterator() {
+        //GIVEN
+        int resultExpected = 3;
+        //WHEN
+        map.put("get", 1);
+        map.put("getting", 2);
+        map.put("getter", 3);
+
+        int resultActual = 0;
+        Iterator<MapImpl.Entry<String, Integer>> iteratorMap = map.iterator();
+        while (iteratorMap.hasNext()) {
+            MapImpl.Entry<String, Integer> entryMap = iteratorMap.next();
+            if (entryMap.key.startsWith("get")) {
+                resultActual++;
+            }
+        }
+        //THEN
+        Assert.assertEquals(resultExpected, resultActual);
     }
 }
